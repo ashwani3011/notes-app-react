@@ -1,6 +1,6 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { useHistory } from "react-router-dom";
-import { useFetch } from "../hooks/useFetch";
+
 import { Button } from "@material-ui/core";
 import { projectFirestore } from "../firebase/config";
 // styles

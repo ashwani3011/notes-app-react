@@ -3,11 +3,9 @@ import "./Navbar.css";
 
 //pages & Component
 
-import Home from "../pages/Home";
 import SearchBar from "./SearchBar";
 
 export default function Navbar() {
-  const date = new Date();
   return (
     <div className="navbar">
       <Link to="/" style={{ textDecoration: "none" }}>

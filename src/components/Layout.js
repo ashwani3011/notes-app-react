@@ -11,11 +11,6 @@ import { AddCircleOutlineOutlined, SubjectOutlined } from "@material-ui/icons";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import { format } from "date-fns";
-import Avatar from "@material-ui/core/Avatar";
-import CreateIcon from "@material-ui/icons/Create";
-import InputBase from "@material-ui/core/InputBase";
-
-import SearchIcon from "@material-ui/icons/Search";
 import SearchBar from "./SearchBar";
 const drawerWidth = 240;
 
@@ -119,7 +114,9 @@ export default function Layout({ children }) {
               button
               key={item.text}
               onClick={() => history.push(item.path)}
-              className={location.pathname == item.path ? classes.active : null}
+              className={
+                location.pathname === item.path ? classes.active : null
+              }
             >
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />

@@ -1,5 +1,4 @@
 import { useHistory, useParams } from "react-router-dom";
-import { Button } from "@material-ui/core";
 import { useEffect, useState } from "react";
 import { projectFirestore } from "../firebase/config";
 // css
@@ -11,8 +10,6 @@ export default function Notes() {
   const [error, setError] = useState(null);
   const [notes, setNotes] = useState(null);
   const { id } = useParams();
-
-  const history = useHistory();
 
   //useEffect
 

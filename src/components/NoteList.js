@@ -5,7 +5,6 @@ import "./NoteList.css";
 import { projectFirestore } from "../firebase/config";
 
 export default function NoteList({ data: notes }) {
-  const history = useHistory();
   //deleting
   const handleClick = (id) => {
     console.log("clicked");

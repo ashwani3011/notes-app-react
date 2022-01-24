@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useFetch } from "../hooks/useFetch";
 import { projectFirestore } from "../firebase/config";
 // css
 import "./Home.css";

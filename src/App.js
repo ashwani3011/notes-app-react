@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
 
 //pages & component
@@ -7,8 +7,7 @@ import Notes from "./pages/Notes";
 import Create from "./pages/Create";
 import Search from "./pages/Search";
 
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+
 import Layout from "./components/Layout";
 // react
 

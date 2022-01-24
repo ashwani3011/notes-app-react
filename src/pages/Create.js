@@ -40,11 +40,11 @@ export default function Create() {
 
   // redirecting to home after creating a notes
 
-  // useEffect(() => {
-  //   if (data) {
-  //     history.push("/");
-  //   }
-  // }, [data, history]);
+  useEffect(() => {
+    if (data) {
+      history.push("/");
+    }
+  }, [history]);
 
   return (
     <div className="create">

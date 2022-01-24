@@ -5,6 +5,7 @@
 .searchbar input {
   margin-left: 10px;
   height: 33px;
+  border-radius: 6px;
   background: rgb(109, 132, 133);
   background: linear-gradient(
     0deg,

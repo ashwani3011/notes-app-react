@@ -7,10 +7,11 @@ import Home from "../pages/Home";
 import SearchBar from "./SearchBar";
 
 export default function Navbar() {
+  const date = new Date();
   return (
     <div className="navbar">
       <Link to="/" style={{ textDecoration: "none" }}>
-        <p>Notes</p>
+        <p>Notes </p>
       </Link>
       <SearchBar />
       <Link to="/create" style={{ textDecoration: "none" }}>

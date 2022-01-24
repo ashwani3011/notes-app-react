@@ -8,7 +8,7 @@ import Create from "./pages/Create";
 import Search from "./pages/Search";
 
 import Navbar from "./components/Navbar";
-
+import Footer from "./components/Footer";
 // react
 
 function App() {

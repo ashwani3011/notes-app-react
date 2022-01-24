@@ -45,3 +45,7 @@
   border-radius: 4px;
   margin: 20px auto 0;
 }
+
+.all-link {
+  display: flex;
+}

@@ -92,7 +92,12 @@ export default function Create() {
           ))}
         </p>
 
-        <Button variant="contained" color="primary" className="formSubmitBtn">
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          className="formSubmitBtn"
+        >
           Create
         </Button>
       </form>

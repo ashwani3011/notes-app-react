@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 import { Button } from "@material-ui/core";
+import { projectFirestore } from "../firebase/config";
 // styles
 import "./Create.css";
 
@@ -12,19 +13,22 @@ export default function Create() {
   const [tags, setTags] = useState([]);
   const tagInput = useRef(null);
   const history = useHistory();
-  const { postData, data, error } = useFetch(
-    "http://localhost:3000/notes",
-    "POST"
-  );
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // console.log(title, method);
-    postData({
+    const doc = {
       title,
       tags,
       body,
-    });
+    };
+
+    try {
+      await projectFirestore.collection("notes").add(doc);
+      history.push("/");
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const handleAdd = (e) => {

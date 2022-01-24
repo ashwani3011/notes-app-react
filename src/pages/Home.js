@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useFetch } from "../hooks/useFetch";
+import { projectFirestore } from "../firebase/config";
 // css
 import "./Home.css";
 
@@ -8,8 +9,35 @@ import "./Home.css";
 import NoteList from "../components/NoteList";
 
 export default function Home() {
-  const [url, setUrl] = useState("http://localhost:3000/notes");
-  const { data, isPending, error } = useFetch(url);
+  const [data, setData] = useState(null);
+  const [isPending, setIsPending] = useState(false);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    setIsPending(true);
+
+    const unsub = projectFirestore.collection("notes").onSnapshot(
+      (snapshot) => {
+        if (snapshot.empty) {
+          setError("No notes to load...");
+          setIsPending(false);
+        } else {
+          let results = [];
+          snapshot.docs.forEach((doc) => {
+            results.push({ id: doc.id, ...doc.data() });
+          });
+          setData(results);
+          setIsPending(false);
+        }
+      },
+      (err) => {
+        setError(err);
+        isPending(false);
+      }
+    );
+
+    return () => unsub();
+  }, []);
 
   return (
     <div>

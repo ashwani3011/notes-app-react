@@ -1,24 +1,48 @@
 import { useHistory, useParams } from "react-router-dom";
-import { useFetch } from "../hooks/useFetch";
 import { Button } from "@material-ui/core";
+import { useEffect, useState } from "react";
+import { projectFirestore } from "../firebase/config";
 // css
 import "./Notes.css";
+// import { useEffect } from "react";
 
 export default function Notes() {
+  const [isPending, setIsPending] = useState(false);
+  const [error, setError] = useState(null);
+  const [notes, setNotes] = useState(null);
   const { id } = useParams();
-  const url = "http://localhost:3000/notes/" + id;
-  const { isPending, error, data: notes } = useFetch(url);
+
   const history = useHistory();
+
+  //useEffect
+
+  useEffect(() => {
+    setIsPending(true);
+
+    projectFirestore
+      .collection("notes")
+      .doc(id)
+      .get()
+      .then((doc) => {
+        if (doc.exists) {
+          setIsPending(false);
+          setNotes(doc.data());
+        } else {
+          setIsPending(false);
+          setError(`Could not find that notes`);
+        }
+      });
+  }, [id]);
 
   // delete notes
 
-  const handleClick = () => {
-    fetch(url, {
-      method: "DELETE",
-    }).then(() => {
-      history.push("/");
-    });
-  };
+  // const handleClick = () => {
+  //   fetch(url, {
+  //     method: "DELETE",
+  //   }).then(() => {
+  //     history.push("/");
+  //   });
+  // };
 
   return (
     <div className="recipe">
@@ -39,9 +63,9 @@ export default function Notes() {
 
           {/* <button onClick={handleClick}>Delete</button> */}
 
-          <Button onClick={handleClick} variant="outlined" color="primary">
+          {/* <Button onClick={handleClick} variant="outlined" color="primary">
             Delete
-          </Button>
+          </Button> */}
         </>
       )}
     </div>

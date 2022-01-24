@@ -2,17 +2,14 @@ import { Link, useHistory } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 //css
 import "./NoteList.css";
+import { projectFirestore } from "../firebase/config";
 
 export default function NoteList({ data: notes }) {
   const history = useHistory();
   //deleting
   const handleClick = (id) => {
-    const url = "http://localhost:3000/notes/" + id;
-    fetch(url, {
-      method: "DELETE",
-    }).then(() => {
-      history.push("/");
-    });
+    console.log("clicked");
+    projectFirestore.collection("notes").doc(id).delete();
   };
 
   if (notes.length === 0) {

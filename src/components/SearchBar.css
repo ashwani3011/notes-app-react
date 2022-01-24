@@ -1,0 +1,24 @@
+.searchbar form {
+  display: flex;
+  align-items: center;
+}
+.searchbar input {
+  margin-left: 10px;
+  height: 33px;
+  background: rgb(109, 132, 133);
+  background: linear-gradient(
+    0deg,
+    rgba(109, 132, 133, 1) 0%,
+    rgba(226, 217, 198, 1) 100%
+  );
+}
+
+.searchbar label {
+  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: black;
+  /* justify-content: center;
+  line-height: 1.25; */
+}

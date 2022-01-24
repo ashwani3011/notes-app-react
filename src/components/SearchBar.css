@@ -6,12 +6,11 @@
   margin-left: 10px;
   height: 33px;
   border-radius: 6px;
-  background: rgb(109, 132, 133);
-  background: linear-gradient(
-    0deg,
-    rgba(109, 132, 133, 1) 0%,
-    rgba(226, 217, 198, 1) 100%
-  );
+  border: none;
+  color: black;
+  padding: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
 .searchbar label {

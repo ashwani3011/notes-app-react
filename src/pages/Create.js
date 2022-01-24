@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
-
+import { Button } from "@material-ui/core";
 // styles
 import "./Create.css";
 
@@ -40,11 +40,11 @@ export default function Create() {
 
   // redirecting to home after creating a notes
 
-  useEffect(() => {
-    if (data) {
-      history.push("/");
-    }
-  }, [history]);
+  // useEffect(() => {
+  //   if (data) {
+  //     history.push("/");
+  //   }
+  // }, [data, history]);
 
   return (
     <div className="create">
@@ -92,7 +92,9 @@ export default function Create() {
           ))}
         </p>
 
-        <button className="btn">Submit</button>
+        <Button variant="contained" color="primary" className="formSubmitBtn">
+          Create
+        </Button>
       </form>
     </div>
   );

@@ -9,27 +9,31 @@ import Search from "./pages/Search";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Layout from "./components/Layout";
 // react
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar />
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/search">
-            <Search />
-          </Route>
-          <Route path="/create">
-            <Create />
-          </Route>
-          <Route path="/notes/:id">
-            <Notes />
-          </Route>
-        </Switch>
+        <Layout>
+          {/* <Navbar /> */}
+
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/search">
+              <Search />
+            </Route>
+            <Route path="/create">
+              <Create />
+            </Route>
+            <Route path="/notes/:id">
+              <Notes />
+            </Route>
+          </Switch>
+        </Layout>
       </BrowserRouter>
     </div>
   );

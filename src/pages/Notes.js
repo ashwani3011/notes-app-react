@@ -1,6 +1,6 @@
 import { useHistory, useParams } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
-
+import { Button } from "@material-ui/core";
 // css
 import "./Notes.css";
 
@@ -37,7 +37,11 @@ export default function Notes() {
           </ul>
           <p className="method">{notes.body}</p>
 
-          <button onClick={handleClick}>Delete</button>
+          {/* <button onClick={handleClick}>Delete</button> */}
+
+          <Button onClick={handleClick} variant="outlined" color="primary">
+            Delete
+          </Button>
         </>
       )}
     </div>

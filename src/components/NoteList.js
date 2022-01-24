@@ -1,5 +1,5 @@
 import { Link, useHistory } from "react-router-dom";
-
+import Button from "@material-ui/core/Button";
 //css
 import "./NoteList.css";
 
@@ -25,14 +25,20 @@ export default function NoteList({ data: notes }) {
           <h3>{note.title}</h3>
           <div>{note.body.substring(0, 100)}</div>
           <div className="all-link">
-            <Link to={`/notes/${note.id}`}>View</Link>
+            <Link to={`/notes/${note.id}`}>
+              <Button variant="contained" color="primary" className="view-btn">
+                View
+              </Button>
+            </Link>
             {/* <Link>Edit</Link> */}
             <Link
               onClick={() => {
                 handleClick(note.id);
               }}
             >
-              Delete
+              <Button variant="outlined" color="primary">
+                Delete
+              </Button>
             </Link>
           </div>
         </div>
